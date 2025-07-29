@@ -1,9 +1,12 @@
-#Thickness min max
+#Thickness Percentage
 penalty = 0
 value = THIC(PVHX()) # Get the thickness of the specified surface
-min_value = PVPX()
-max_value = PVPY()
+target = PVPX()
+percentage = PVPY()
+min_value = (1 - percentage) * target
+max_value = (1 + percentage) * target
 range_size = max_value - min_value
+IF min_val < 0 THEN min_val = 0 # Check if min_val is below zero and set to zero if true
 IF value < min_value
     diff = (min_value - value) / range_size
     penalty = diff * diff

@@ -1,6 +1,5 @@
-#Thickness min max
 penalty = 0
-value = THIC(PVHX()) # Get the thickness of the specified surface
+value = CALD(1) #CALD(1): Value
 min_value = PVPX()
 max_value = PVPY()
 range_size = max_value - min_value
@@ -13,4 +12,4 @@ ELSE
         penalty = diff * diff
     ENDIF
 ENDIF
-OPTRETURN 0, penalty # Return penalty to Merit Function (0 if within bounds, positive if outside)
+CALLSETDBL 1, penalty
